@@ -1,17 +1,17 @@
 const request = require('supertest');
-const app = require('../Server/index');
+const app = require('../index');
 
 describe('API server', () => {
     const port = 3000;
     let api;
     let testPost = {
         // id: 0,
-        text: 'Test post',
-        giphyUrl: '',
-        emojiCount1: 0, 
-        emojiCount2: 1, 
-        emojiCount3: 2, 
-        comments: ['Test comment']
+        'text': 'Test post',
+        'giphyUrl': '',
+        'emojiCount1': 0, 
+        'emojiCount2': 1, 
+        'emojiCount3': 2, 
+        'comments': ['Test comment']
     }
 
     beforeAll(() => {
@@ -37,7 +37,15 @@ describe('API server', () => {
         request(api)
             .get('/posts/1')
             .expect(200)
-            .expect({id: 1, text: "Hello World!", giphyUrl: "", emojiCount1: 0, emojiCount2: 1, emojiCount3: 2, comments: "Test comment!"}, done)
+            .expect({'id': 1, 
+                "text": "Hello World!", 
+                "giphyUrl": "", 
+                "reactions": {
+                    "thumbsUp": 0,
+                    "thumbsDown": 0,
+                    "heart": 0
+                },
+                'comments': "Test comment!"}, done)
     })
 
     //create new post
