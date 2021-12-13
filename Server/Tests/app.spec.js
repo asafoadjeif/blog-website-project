@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../index');
 
 describe('API server', () => {
-    const port = 3000;
+    const port = 5000;
     let api;
     let testPost = {
         // id: 0,
