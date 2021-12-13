@@ -1,11 +1,13 @@
-{
-    "id": 1,
-    "text": "Hello World!",
-    "giphyUrl": "",
-    "reactions": {
-        "thumbsUp": 0,
-        "thumbsDown": 0,
-        "heart": 0
-    },
-    "comments": ["Test comment!"]
-}
+[
+    {
+        "id": 1,
+        "text": "Hello World!",
+        "giphyUrl": "",
+        "reactions": {
+            "thumbsUp": 0,
+            "thumbsDown": 0,
+            "heart": 0
+        },
+        "comments": ["Test comment!"]
+    }
+]
