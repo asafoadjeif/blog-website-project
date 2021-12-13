@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../index');
 
 describe('API server', () => {
-    const port = 3000;
+    const port = 5000;
     let api;
     let testPost = {
         // id: 0,
@@ -50,11 +50,13 @@ describe('API server', () => {
 
     //create new post
     it('responds to post /posts with status 201', async() => {
+        const numStudents = await request(api)
+            .get('/posts');
         await request(api)
-            .post('/posts/0')
+            .post('/posts')
             .send(testPost)
             .expect(201)
-            .expect({id:0, ...testPost})
+            .expect({id:numStudents.body.length + 1, ...testPost})
     });
 
     //delete post
@@ -62,12 +64,12 @@ describe('API server', () => {
         const previousStudents = await request(api)
             .get('/posts');
         await request(api)
-            .delete('/posts/0')
+            .delete('/posts/previousStudents.body.length')
             .expect(204)
-        const updatedStudent = await request(api)
+        const updatedStudents = await request(api)
             .get('/posts');
         
-        expect(updatedStudent.body.length).toBe(previousStudents.body.length - 1);
+        expect(updatedStudents.body.length).toBe(previousStudents.body.length - 1);
     })
 
 });
