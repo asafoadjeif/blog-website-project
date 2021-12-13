@@ -52,13 +52,13 @@ describe('API server', () => {
 
     //create new post
     it('responds to post /posts with status 201', async() => {
-        const numStudents = await request(api)
+        const numPosts = await request(api)
             .get('/posts');
         await request(api)
             .post('/posts')
             .send(testPost)
             .expect(201)
-            .expect({id:numStudents.body.length + 1, ...testPost})
+            .expect({id:numPosts.body.length + 1, ...testPost})
     });
 
     //delete post
@@ -66,7 +66,7 @@ describe('API server', () => {
         const previousStudents = await request(api)
             .get('/posts');
         await request(api)
-            .delete('/posts/previousStudents.body.length')
+            .delete(`/posts/${previousStudents.body.length}`)
             .expect(204)
         const updatedStudents = await request(api)
             .get('/posts');
