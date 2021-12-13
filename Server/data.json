@@ -8,6 +8,8 @@
             "thumbsDown": 0,
             "heart": 0
         },
-        "comments": ["Test comment!"]
+        "comments": [
+            "Test comment!"
+        ]
     }
 ]
