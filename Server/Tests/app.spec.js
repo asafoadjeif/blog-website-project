@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../index');
 
 describe('API server', () => {
-    const port = 3000;
+    const port = 5000;
     let api;
     let testPost = {
         // id: 0,
@@ -45,7 +45,7 @@ describe('API server', () => {
                     "thumbsDown": 0,
                     "heart": 0
                 },
-                'comments': "Test comment!"}, done)
+                'comments': ["Test comment!"]}, done)
     })
 
     //create new post

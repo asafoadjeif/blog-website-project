@@ -5,8 +5,8 @@ class Post{
         this.id = data.id;
         this.text = data.text;
         this.giphyUrl = data.giphyUrl;
-        this.reactions = {thumbsUp: 0, thumbsDown: 0, heart: 0};
-        this.comments = [];
+        this.reactions = data.reactions;
+        this.comments = data.comments;
     }
 
     static get all(){
@@ -20,7 +20,7 @@ class Post{
     };
 
     static add(post) {
-        const newPostId = postsData[postsData.length + 1].id + 1;
+        const newPostId = postsData[postsData.length - 1].id + 1;
         const newPost = new Post({ id: newPostId, ...post });
         postsData.push(newPost);
         return newPost;
