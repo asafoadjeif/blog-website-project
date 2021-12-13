@@ -1,18 +1,15 @@
-const postsData = require("../data");
+const postsData = require("../data.json");
 
 class Post{
     constructor(data){
         this.id = data.id;
         this.text = data.text;
         this.giphyUrl = data.giphyUrl;
-        this.emojiCount1 = data.emojiCount1;
-        this.emojiCount2 = data.emojiCount2;
-        this.emojiCount3 = data.emojiCount3;
-        this.comments = data.comments;
+        this.reactions = {thumbsUp: 0, thumbsDown: 0, heart: 0};
+        this.comments = [];
     }
     static get all(){
-        const posts = postsData.map((post) => new Post(post));
-        return posts;
+        return postsData;
     }
 };
 
