@@ -8,9 +8,11 @@ describe('API server', () => {
         // id: 0,
         'text': 'Test post',
         'giphyUrl': '',
-        'emojiCount1': 0, 
-        'emojiCount2': 1, 
-        'emojiCount3': 2, 
+        'reactions': {
+            'thumbsUp': 0, 
+            'thumbsDown': 1, 
+            'heart': 2, 
+        },
         'comments': ['Test comment']
     }
 
