@@ -8,9 +8,11 @@ describe('API server', () => {
         // id: 0,
         'text': 'Test post',
         'giphyUrl': '',
-        'emojiCount1': 0, 
-        'emojiCount2': 1, 
-        'emojiCount3': 2, 
+        'reactions': {
+            'thumbsUp': 0, 
+            'thumbsDown': 1, 
+            'heart': 2, 
+        },
         'comments': ['Test comment']
     }
 
@@ -45,16 +47,18 @@ describe('API server', () => {
                     "thumbsDown": 0,
                     "heart": 0
                 },
-                'comments': "Test comment!"}, done)
+                'comments': ["Test comment!"]}, done)
     })
 
     //create new post
     it('responds to post /posts with status 201', async() => {
+        const numPosts = await request(api)
+            .get('/posts');
         await request(api)
-            .post('/posts/0')
+            .post('/posts')
             .send(testPost)
             .expect(201)
-            .expect({id:0, ...testPost})
+            .expect({id:numPosts.body.length + 1, ...testPost})
     });
 
     //delete post
@@ -62,12 +66,12 @@ describe('API server', () => {
         const previousStudents = await request(api)
             .get('/posts');
         await request(api)
-            .delete('/posts/0')
+            .delete(`/posts/${previousStudents.body.length}`)
             .expect(204)
-        const updatedStudent = await request(api)
+        const updatedStudents = await request(api)
             .get('/posts');
         
-        expect(updatedStudent.body.length).toBe(previousStudents.body.length - 1);
+        expect(updatedStudents.body.length).toBe(previousStudents.body.length - 1);
     })
 
 });
