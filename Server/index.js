@@ -16,3 +16,5 @@ app.use("/posts", postRoutes);
 app.listen(port, () => {
     console.log(`API listening at http://localhost:${port}`);
 });
+
+module.exports = app;

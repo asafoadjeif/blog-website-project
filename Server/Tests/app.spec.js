@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../Server/index');
+const app = require('../index');
 
 describe('API server', () => {
     const port = 3000;
