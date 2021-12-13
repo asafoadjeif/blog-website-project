@@ -45,7 +45,7 @@ describe('API server', () => {
                     "thumbsDown": 0,
                     "heart": 0
                 },
-                'comments': "Test comment!"}, done)
+                'comments': ["Test comment!"]}, done)
     })
 
     //create new post
