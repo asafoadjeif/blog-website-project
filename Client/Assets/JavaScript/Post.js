@@ -13,6 +13,10 @@ postBtn.addEventListener('click', (e) => {
     
 
 
+
+    
+
+
 data = {
     text: message,
     giphyUrl: 'giphyUrl',
@@ -34,6 +38,7 @@ const options = {
     .then((obj) => {
       console.log(obj)
       })
+
 })
 
 
