@@ -1,11 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "Server/index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node Server/index.js",
     "test": "jest --watchAll --verbose --silent",
-    "dev": "nodemon index.js",
+    "dev": "nodemon Server/index.js",
     "coverage": "jest --coverage --watchAll"
   },
   "keywords": [],
