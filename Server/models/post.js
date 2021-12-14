@@ -26,8 +26,29 @@ class Post{
     };
 
     delete() {
-        const post = postsData.filter((post) => post.id === this.id)[0];
-        postsData.splice(postsData.indexOf(post), 1);
+        postsData.splice(postsData.indexOf(this), 1);
+    };
+
+    addComment(comment) {
+        this.comments.push(comment);
+        postsData[postsData.indexOf(this)] = this;
+    };
+
+    addReaction(emojiId) {
+        switch(emojiId) {
+            case 0:
+                this.reactions.thumbsUp += 1;
+                break;
+            case 1:
+                this.reactions.thumbsDown += 1;
+                break;
+            case 2:
+                this.reactions.heart += 1;
+                break;
+            default:
+                break;
+        };
+        postsData[postsData.indexOf(this)] = this;
     };
 };
 
