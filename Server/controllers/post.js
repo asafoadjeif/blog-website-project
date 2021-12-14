@@ -20,26 +20,6 @@ router.get("/:id", (req, res) => {
     }
 });
 
-router.get("/:id/comments", (req, res) => {
-    try{
-        const postId = parseInt(req.params.id);
-        const selectedPost = Post.findById(postId);
-        res.send(selectedPost.comments);
-    } catch {
-        res.status(404).send("Post does not exist.");
-    }
-});
-
-router.get("/:id/reactions", (req, res) => {
-    try{
-        const postId = parseInt(req.params.id);
-        const selectedPost = Post.findById(postId);
-        res.send(selectedPost.reactions);
-    } catch {
-        res.status(404).send("Post does not exist.");
-    }
-});
-
 router.post('/', (req, res) => {
     const post = req.body;
     const newPost = Post.add(post);
@@ -53,20 +33,18 @@ router.delete('/:id', (req, res) => {
     res.status(204).send();
 });
 
-router.patch('/:id/comments', (req, res) => {
+router.patch('/comments/:id', (req, res) => {
     const postId = parseInt(req.params.id);
-    const comment = req.body;
-    const selectedPost = Post.findById(postId);
-    selectedPost.addComment(comment);
-    res.status(201).send(selectedPost);
+    const comment = req.body.comment;
+    const newPost = Post.addComment(postId, comment);
+    res.status(201).send(newPost);
 });
 
-router.patch('/:id/reactions', (req, res) => {
+router.patch('/reactions/:id', (req, res) => {
     const postId = parseInt(req.params.id);
-    const emojiId = parseInt(req.body);
-    const selectedPost = Post.findById(postId);
-    selectedPost.addReaction(emojiId);
-    res.status(201).send(selectedPost);
+    const emojiId = req.body.emojiId;
+    const newPost = Post.addReaction(postId, emojiId);
+    res.status(201).send(newPost);
 });
 
 module.exports = router;

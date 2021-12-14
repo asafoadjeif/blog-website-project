@@ -29,26 +29,30 @@ class Post{
         postsData.splice(postsData.indexOf(this), 1);
     };
 
-    addComment(comment) {
-        this.comments.push(comment);
-        postsData[postsData.indexOf(this)] = this;
+    static addComment(id, comment) {
+        const post = postsData.filter((post) => post.id === id)[0];
+        post.comments.push(comment);
+        postsData[postsData.indexOf(post)] = post;
+        return post
     };
 
-    addReaction(emojiId) {
+    static addReaction(id, emojiId) {
+        const post = postsData.filter((post) => post.id === id)[0];
         switch(emojiId) {
             case 0:
-                this.reactions.thumbsUp += 1;
+                post.reactions.thumbsUp += 1;
                 break;
             case 1:
-                this.reactions.thumbsDown += 1;
+                post.reactions.thumbsDown += 1;
                 break;
             case 2:
-                this.reactions.heart += 1;
+                post.reactions.heart += 1;
                 break;
             default:
                 break;
         };
-        postsData[postsData.indexOf(this)] = this;
+        postsData[postsData.indexOf(post)] = post;
+        return post
     };
 };
 

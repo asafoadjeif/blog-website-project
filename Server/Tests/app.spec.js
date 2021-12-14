@@ -69,26 +69,26 @@ describe('API server', () => {
     })
 
     //create new comment
-    it('responds to post /:id/comments with status 201', async() => {
+    it('responds to post /comments/:id with status 201', async() => {
         const postObj = await request(api)
             .get('/posts/1');
-        let testComment = 'Test comment';
-        postObj.body.comments.push(testComment);
+        let testComment = {comment: 'Test comment'};
+        postObj.body.comments.push(testComment.comment);
         await request(api)
-            .patch('/posts/1/comments')
+            .patch('/posts/comments/1')
             .send(testComment)
             .expect(201)
             .expect(postObj.body)
     });
 
     //add reaction
-    it('responds to post /:id/reactions with status 201', async() => {
+    it('responds to post /reactions/:id with status 201', async() => {
         const postObj = await request(api)
             .get('/posts/1');
         postObj.body.reactions.thumbsUp += 1;
         await request(api)
-            .patch('/posts/1/reactions')
-            .send(0)
+            .patch('/posts/reactions/1')
+            .send({emojiId: 0})
             .expect(201)
             .expect(postObj.body)
     });
