@@ -68,4 +68,30 @@ describe('API server', () => {
         expect(updatedStudents.body.length).toBe(previousStudents.body.length - 1);
     })
 
+    //create new comment
+    it('responds to post /:id/comment with status 201', async() => {
+        const postObj = await request(api)
+            .get('/posts/1');
+        let testComment = 'Test comment';
+        postObj.body.comments.push(testComment);
+        await request(api)
+            .post('/posts/1/comment')
+            .send(testComment)
+            .expect(201)
+            .expect(postObj)
+    });
+
+    //create new comment
+    it('responds to post /:id/reaction with status 201', async() => {
+        const postObj = await request(api)
+            .get('/posts/1');
+        postObj.body.reactions.thumbsUp += 1;
+        await request(api)
+            .patch('/posts/1/reactions/0')
+            .send(0)
+            .expect(201)
+            .expect(postObj)
+    });
+
+
 });
