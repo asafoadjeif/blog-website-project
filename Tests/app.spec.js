@@ -29,10 +29,6 @@ describe('API server', () => {
         request(api).get('/posts').expect(200, done);
     });
 
-    it("Giphy route responds", (done) => {
-        request(api).get("/giphy").expect(200, done);
-    });
-
     it("Giphy search route responds", (done) => {
         request(api).get("/giphy/search").expect(200, done);
     });
