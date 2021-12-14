@@ -48,7 +48,7 @@ describe('API server', () => {
         request(api)
             .get('/posts/0')
             .expect(404)
-            .expect('Post does not exist.')
+            .expect('Post does not exist.', done)
     })
 
     //create new post
