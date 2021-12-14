@@ -1,4 +1,5 @@
 {
+
   "name": "blog-website-project",
   "version": "1.0.0",
   "description": "",
@@ -24,4 +25,28 @@
     "cors": "^2.8.5",
     "express": "^4.17.1"
   }
+
+  "name": "server",
+  "version": "1.0.0",
+  "main": "Server/index.js",
+  "scripts": {
+    "start": "node Server/index.js",
+    "test": "jest --watchAll --verbose --silent",
+    "dev": "nodemon Server/index.js",
+    "coverage": "jest --coverage --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.4.4",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "description": ""
+
 }
