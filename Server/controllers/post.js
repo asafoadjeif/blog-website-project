@@ -33,4 +33,18 @@ router.delete('/:id', (req, res) => {
     res.status(204).send();
 });
 
+router.patch('/comments/:id', (req, res) => {
+    const postId = parseInt(req.params.id);
+    const comment = req.body.comment;
+    const newPost = Post.addComment(postId, comment);
+    res.status(201).send(newPost);
+});
+
+router.patch('/reactions/:id', (req, res) => {
+    const postId = parseInt(req.params.id);
+    const emojiId = req.body.emojiId;
+    const newPost = Post.addReaction(postId, emojiId);
+    res.status(201).send(newPost);
+});
+
 module.exports = router;

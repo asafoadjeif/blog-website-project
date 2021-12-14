@@ -26,8 +26,33 @@ class Post{
     };
 
     delete() {
-        const post = postsData.filter((post) => post.id === this.id)[0];
-        postsData.splice(postsData.indexOf(post), 1);
+        postsData.splice(postsData.indexOf(this), 1);
+    };
+
+    static addComment(id, comment) {
+        const post = postsData.filter((post) => post.id === id)[0];
+        post.comments.push(comment);
+        postsData[postsData.indexOf(post)] = post;
+        return post
+    };
+
+    static addReaction(id, emojiId) {
+        const post = postsData.filter((post) => post.id === id)[0];
+        switch(emojiId) {
+            case 0:
+                post.reactions.thumbsUp += 1;
+                break;
+            case 1:
+                post.reactions.thumbsDown += 1;
+                break;
+            case 2:
+                post.reactions.heart += 1;
+                break;
+            default:
+                break;
+        };
+        postsData[postsData.indexOf(post)] = post;
+        return post
     };
 };
 
