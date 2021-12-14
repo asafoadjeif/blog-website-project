@@ -8,12 +8,6 @@ describe('API server', () => {
         // id: 0,
         'text': 'Test post',
         'giphyUrl': '',
-        'reactions': {
-            'thumbsUp': 0, 
-            'thumbsDown': 1, 
-            'heart': 2, 
-        },
-        'comments': ['Test comment']
     }
 
     beforeAll(() => {
@@ -58,7 +52,7 @@ describe('API server', () => {
             .post('/posts')
             .send(testPost)
             .expect(201)
-            .expect({id:numPosts.body.length + 1, ...testPost})
+            .expect({id:numPosts.body.length + 1, ...testPost, reactions: {thumbsUp: 0, thumbsDown: 0, heart: 0}, comments: []})
     });
 
     //delete post
