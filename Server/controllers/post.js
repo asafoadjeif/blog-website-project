@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/post")
 const cors = require('cors');
+const e = require("express");
 
 router.use(cors());
 
@@ -11,13 +12,13 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-    try{
-        const postId = parseInt(req.params.id);
-        const selectedPost = Post.findById(postId);
+    const postId = parseInt(req.params.id);
+    const selectedPost = Post.findById(postId);
+    if(selectedPost !== undefined) {
         res.send(selectedPost);
-    } catch {
+    } else {
         res.status(404).send("Post does not exist.");
-    }
+    };
 });
 
 router.post('/', (req, res) => {
@@ -29,8 +30,12 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     const postId = parseInt(req.params.id);
     const selectedPost = Post.findById(postId);
-    selectedPost.delete();
-    res.status(204).send();
+    if(selectedPost !== undefined) {
+        selectedPost.delete();
+        res.status(204).send();
+    } else {
+        res.status(404).send("Post does not exist.");
+    };
 });
 
 router.patch('/comments/:id', (req, res) => {

@@ -43,6 +43,13 @@ describe('API server', () => {
                 },
                 'comments': ["Test comment!"]}, done)
     })
+    
+    it('handle post id outside of range', (done) => {
+        request(api)
+            .get('/posts/0')
+            .expect(404)
+            .expect('Post does not exist.', done)
+    })
 
     //create new post
     it('responds to post /posts with status 201', async() => {
@@ -81,7 +88,7 @@ describe('API server', () => {
             .expect(postObj.body)
     });
 
-    //add reaction
+    //add reaction thumbs up
     it('responds to post /reactions/:id with status 201', async() => {
         const postObj = await request(api)
             .get('/posts/1');
@@ -93,5 +100,38 @@ describe('API server', () => {
             .expect(postObj.body)
     });
 
+    //add reaction thumbs down
+    it('responds to post /reactions/:id with status 201', async() => {
+        const postObj = await request(api)
+            .get('/posts/1');
+        postObj.body.reactions.thumbsDown += 1;
+        await request(api)
+            .patch('/posts/reactions/1')
+            .send({emojiId: 1})
+            .expect(201)
+            .expect(postObj.body)
+    });
 
+    //add reaction heart
+    it('responds to post /reactions/:id with status 201', async() => {
+        const postObj = await request(api)
+            .get('/posts/1');
+        postObj.body.reactions.heart += 1;
+        await request(api)
+            .patch('/posts/reactions/1')
+            .send({emojiId: 2})
+            .expect(201)
+            .expect(postObj.body)
+    });
+    
+    //handle non-existant reaction 
+    it('responds to post /reactions/:id with status 201', async() => {
+        const postObj = await request(api)
+            .get('/posts/1');
+        await request(api)
+            .patch('/posts/reactions/1')
+            .send({emojiId: -1})
+            .expect(201)
+            .expect(postObj.body)
+    });
 });
