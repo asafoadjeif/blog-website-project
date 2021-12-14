@@ -5,8 +5,8 @@ class Post{
         this.id = data.id;
         this.text = data.text;
         this.giphyUrl = data.giphyUrl;
-        this.reactions = data.reactions;
-        this.comments = data.comments;
+        this.reactions = {thumbsUp: 0, thumbsDown: 0, heart: 0};
+        this.comments = [];
     }
 
     static get all(){
@@ -14,8 +14,7 @@ class Post{
     }
 
     static findById(id){
-        const postData = postsData.filter((post) => post.id === id)[0];
-        const post = new Post(postData);
+        const post = postsData.filter((post) => post.id === id)[0];
         return post;
     };
 
