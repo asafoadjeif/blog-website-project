@@ -15,6 +15,16 @@
     <script src="../JavaScript/Post.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../CSS/Styles.css">
+    <script src="https://cdn.tiny.cloud/1/zttam4lkmt8x4t0xsg9fifpcewlw8grwk48mci841zua7bb6/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: "#textBox",
+            plugins: "emoticons",
+            toolbar: "emoticons",
+            toolbar_location: "bottom",
+            menubar: false
+        });
+    </script>
 </head>
 
 <body>
@@ -40,7 +50,7 @@
                                     <!-- Edit this section: Add post submission form -->
                                     <li class="w-100">
                                             <form action="">
-                                                <textarea name="textBox" id="textBox" class="form-control"></textarea>
+                                                <textarea name="textBox" id="textBox" class="form-control" maxlength="240" required></textarea>
                                             
                                                 
                                             
