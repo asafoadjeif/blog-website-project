@@ -2,10 +2,13 @@
 
 const postList = document.getElementById('postList');
 const apiDomain = 'https://fp-snappy.herokuapp.com/';
+const settingsButton = document.getElementById('settingsButton');
 
 postBtn = document.getElementById('postBtn');
 gifBtn = document.getElementById('gifBtn');
 let imgSource;
+
+
 
 function loadContent(){
     function removeAllChildNodes() {
