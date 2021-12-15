@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="../JavaScript/Prototype.js" defer></script>
+    <link rel="stylesheet" href="../CSS/Styles.css">
+</head>
+
+<body>
+    <div id="post">
+
+    </div>
+
+
+    <div class='container-fluid' style="height: 100%">
+        <div class='row p-0'>
+            <div class='col-3 bg-dark'>  
+                <div class="d-flex flex-column align-items-center sticky-top ">
+                    <a href="index.html">
+                    <span> put logo here </span>
+                    </a>
+                    <ul class="nav nav-pills flex-column" id="siteMenu">
+                        <li class="nav-item">
+                                <a class="nav-link align-middle px-0" href=""> <i class="bi bi-house"></i> <span>Home</span> </a>
+                        </li>
+                        <li class="nav-item "> 
+                                <a class='nav-link align-middle px-0' href="#postMenu" data-bs-toggle='collapse'> <i class="bi bi-cloud-arrow-up-fill"></i> <span>Make Post</span> </a>
+                                <ul class="collapse show nav flex-column" id="postMenu" data-bs-parent='siteMenu'>
+                                    <!-- Edit this section: Add post submission form -->
+                                    <li class="w-100">
+                                            <form action="">
+                                                <textarea name="textBox" id="textBox" class="form-control"></textarea>
+                                            
+                                                
+                                            
+                                            
+                                            </form>
+                                    </li> <br>
+                                    <div id='preview'> </div>
+                                    <li>
+                                        <button id='gifBtn' data-bs-toggle="offcanvas" data-bs-target="#gifs"> <i class="bi bi-images"></i> | Add Gif</button>
+                                        <button id="postBtn"> <i class="bi bi-file-richtext"></i> | Submit Message</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link align-middle px-0" href=""> <i class="bi bi-gear"></i> <span>Settings</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link align-middle px-0" href=""> <i class="bi bi-shuffle"></i> <span>Random Post</span> </a>
+                        </li>
+                    </ul>
+                </div>
+            <div class='col-9'>
+                <div class="offcanvas offcanvas-end" id="gifs">
+                    <div class="offcanvas-header">
+                        
+                        <input type="text" id="gifSearch" placeholder="search for gifs here">
+                    </div>
+                    <div class="offcanvas-body">
+                        
+                        <button class="btn btn-secondary" type="button">Add Gif</button>
+                        <button class="btn btn-warning" type="button">Cancel</button>
+                    </div>
+                </div>
+                <div class="card-columns" id="postList">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                </div>
+
+            </div>
+            
+                <!-- Idea of the format that  the javascript function creates -->
+                <!-- <div class='row'>
+                    <div class='col'></div>
+                    <div class='col'></div>
+                    </div>
+                <div class='row'>.... -->
+
+                    <!-- <div class="card">
+                        <div class='card-body'>
+                            <p class='card-text'>
+
+                            </p>
+                            <button></button>
+                            <button></button>
+
+                        </div>
+
+                    </div> -->
+            </div>
+             </div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "text": "Hello People!",
+        "giphyUrl": "",
+        "reactions": {
+            "thumbsUp": 0,
+            "thumbsDown": 0,
+            "heart": 0
+        },
+        "comments": [
+            "Test comment!"
+        ]
+    },
+    {
+        "id": 2,
+        "text": "Bonjour Monde!",
+        "giphyUrl": "",
+        "reactions": {
+            "thumbsUp": 0,
+            "thumbsDown": 0,
+            "heart": 0
+        },
+        "comments": [
+            "Test comment!"
+        ]
+    },
+    {
+        "id": 3,
+        "text": "Здравствуй мир!!",
+        "giphyUrl": "",
+        "reactions": {
+            "thumbsUp": 0,
+            "thumbsDown": 0,
+            "heart": 0
+        },
+        "comments": [
+            "Test comment!"
+        ]
+    },
+    {
+        "id": 4,
+        "text": "Witam Świat!!",
+        "giphyUrl": "",
+        "reactions": {
+            "thumbsUp": 0,
+            "thumbsDown": 0,
+            "heart": 0
+        },
+        "comments": [
+            "Test comment!"
+        ]
+    }
+
+    
+]
