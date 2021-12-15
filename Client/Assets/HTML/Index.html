@@ -22,7 +22,17 @@
             plugins: "emoticons",
             toolbar: "emoticons",
             toolbar_location: "bottom",
-            menubar: false
+            menubar: false,
+            // theme : "advanced",
+            force_br_newlines : false,
+            force_p_newlines : false,
+            forced_root_block : '',
+            // selector: "textarea",
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
+             }
         });
     </script>
 </head>
@@ -60,13 +70,13 @@
                                     <div id='preview'> </div>
                                     <li>
                                         <button data-bs-toggle="offcanvas" data-bs-target="#gifs"> <i class="bi bi-images"></i> | Add Gif</button>
-                                        <button id="postBtn"> <i class="bi bi-file-richtext"></i> | Submit Message</button>
+                                        <button id="postBtn"> <i class="bi bi-file-richtext"></i> | Submit Message</button> 
                                         
-                                    </li>
+                                    </li> <br>
                                 </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link align-middle px-0" href=""> <i class="bi bi-gear"></i> <span>Settings</span> </a>
+                            <button type="button" data-toggle="modal" data-target="#myModal"><i class="bi bi-gear"></i> Settings </button>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link align-middle px-0" href="RandomPost.html"> <i class="bi bi-shuffle"></i> <span>Random Post</span> </a>
@@ -120,6 +130,26 @@
             </div>
              </div>
 
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+            
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Some text in the modal.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
 
 
 
