@@ -138,7 +138,7 @@ function removeAllChildNodes() {
     }
 }
 removeAllChildNodes();
-fetch(`${apiDomain}posts`)
+fetch(`${apiDomain}posts/`)
     .then((response) => response.json())
     .then((obj) => {
       const postDisplay = document.getElementById("postList");
