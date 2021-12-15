@@ -29,11 +29,9 @@ gifBtn.addEventListener('click', (e) => {
     .then((obj) => {
     
       const gifDisplay = document.getElementById("gifResults");
-      console.log(obj);
 
       for (let i = 0; i < obj.length; i++) {
         // Create an image and set its source to the current image
-        console.log(obj[i]);
         const tempImg = document.createElement("img");
         tempImg.classList.add("gif-img");
         tempImg.src = obj[i].images.original.url;
@@ -91,9 +89,6 @@ const options = {
 
     fetch(`${apiDomain}posts`, options)
     .then((response) => response.json())
-    .then((obj) => {
-      console.log(obj)
-      })
 
       loadContent();
 })
@@ -149,7 +144,6 @@ fetch(`${apiDomain}posts`)
             // create a card to show posts 
             const postCard = document.createElement('div');
             postCard.classList.add('card');
-            console.log(obj.length)
             
             // newRow.setAttribute('id', i)
             // const newCol1 = document.createElement('div');
@@ -252,12 +246,44 @@ fetch(`${apiDomain}posts`)
             commentSection.setAttribute('id', `comments${obj[i].id}`);
             commentSection.classList.add('collapse');
             emojiBar.append(commentSection);
+            const commentSectionText = document.createElement('div');
+            commentSection.append(commentSectionText);
             for (let j = 0; j < obj[i].comments.length; j++) {
               const comment = document.createElement('p');
               comment.textContent = obj[i].comments[j];
-              console.log(obj[i].comments[j])
-              commentSection.append(comment);
+              commentSectionText.append(comment);
             };
+            const commentSectionForm = document.createElement('div');
+            commentSection.append(commentSectionForm);
+            const commentForm = document.createElement('form');
+            commentForm.setAttribute('id', `commentForm${obj[i].id}`);
+            commentSectionForm.append(commentForm);
+            const commentFormInput = document.createElement('input');
+            commentFormInput.setAttribute('type', 'text');
+            commentFormInput.setAttribute('id', `commentText${obj[i].id}`);
+            commentFormInput.setAttribute('name', 'commentText');
+            commentFormInput.setAttribute('placeholder', 'Enter comment here!');
+            commentFormInput.setAttribute('maxlength', '240');
+            commentFormInput.setAttribute('required', undefined);
+            const commentFormSubmit = document.createElement('button');
+            commentFormSubmit.setAttribute('type', 'submit');
+            commentFormSubmit.textContent = 'Submit';
+            commentForm.append(commentFormInput);
+            commentForm.append(commentFormSubmit);
+            commentForm.addEventListener("submit", e => {
+              e.preventDefault();
+              const commentText = {comment: e.target.commentText.value};
+              options = {
+                method: 'PATCH',
+                headers: {'Content-Type' : 'application/JSON'},
+                body: JSON.stringify(commentText),
+              }
+              fetch(`${apiDomain}posts/comments/${obj[i].id}`, options)
+              .then((response) => response.json())
+              const comment = document.createElement('p');
+              comment.textContent = e.target.commentText.value;
+              commentSectionText.append(comment);
+            });
 
 
 
