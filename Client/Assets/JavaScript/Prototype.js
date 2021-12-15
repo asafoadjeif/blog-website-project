@@ -1,5 +1,6 @@
 const postList = document.getElementById('postList');
-const apiDomain = 'http://localhost:3000/'
+const apiDomain = 'http://localhost:3000/';
+
 
 // this will be called through an eventListener function (at DOMCONTENTLOADED)
 

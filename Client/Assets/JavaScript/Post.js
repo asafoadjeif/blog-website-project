@@ -1,7 +1,7 @@
-const { add } = require("../../../Server/models/post");
+// const { add } = require("../../../Server/models/post");
 
 const postList = document.getElementById('postList');
-const apiDomain = 'http://localhost:3000/'
+const apiDomain = 'http://localhost:3000/';
 
 postBtn = document.getElementById('postBtn');
 gifBtn = document.getElementById('gifBtn');
@@ -22,13 +22,14 @@ gifBtn.addEventListener('click', (e) => {
 
   search = search.replace(/\s/g, "+");
 
-  fetch(`${apiDomain}gifs/${search}`)
+  fetch(`${apiDomain}giphy/${search}`)
     .then((response) => response.json())
     .then((obj) => {
-      const gifDisplay = document.getElementById("gifs");
+      const gifDisplay = document.getElementById("gifResults");
 
       for (let i = 0; i < obj.length; i++) {
         // Create an image and set its source to the current image
+        console.log(obj[i]);
         const tempImg = document.createElement("img");
         tempImg.classList.add("gif-img");
         tempImg.src = obj[i].images.original.url;
@@ -127,7 +128,7 @@ const options = {
 // function to load content to site
 // ******************************
 
-addEventListener('DOMCONTENTLOADED', loadContent);
+
 
 function loadContent(){
 
@@ -206,3 +207,4 @@ function getPost () {
 }
 
 getPost();
+loadContent();

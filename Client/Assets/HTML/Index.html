@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <script src="../JavaScript/Prototype.js" defer></script>
+    <script src="../JavaScript/Post.js" defer></script>
     <link rel="stylesheet" href="../CSS/Styles.css">
 </head>
 
@@ -48,7 +48,7 @@
                                     </li> <br>
                                     <div id='preview'> </div>
                                     <li>
-                                        <button id='gifBtn' data-bs-toggle="offcanvas" data-bs-target="#gifs"> <i class="bi bi-images"></i> | Add Gif</button>
+                                        <button data-bs-toggle="offcanvas" data-bs-target="#gifs"> <i class="bi bi-images"></i> | Add Gif</button>
                                         <button id="postBtn"> <i class="bi bi-file-richtext"></i> | Submit Message</button>
                                         </div>
                                     </li>
@@ -65,11 +65,10 @@
             <div class='col-9'>
                 <div class="offcanvas offcanvas-end" id="gifs">
                     <div class="offcanvas-header">
-                        
-                        <input type="text" id="gifSearch" placeholder="search for gifs here">
+                        <input type="text" id="gifSearch" placeholder="search for gifs here"> <button id='gifBtn'type='button' >Search</button>
                     </div>
                     <div class="offcanvas-body">
-                        
+                        <div class="gifResults"></div> <br>
                         <button class="btn btn-secondary" type="button">Add Gif</button>
                         <button class="btn btn-warning" type="button">Cancel</button>
                     </div>
