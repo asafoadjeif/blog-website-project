@@ -60,10 +60,18 @@ function loadContent(){
                 const react3 = document.createElement('button');
                 const commentBtn = document.createElement('button');
 
+                react1.textContent = `${String.fromCodePoint(0x1F44D)} ${obj.reactions.thumbsUp}`;
+                react2.textContent = `${String.fromCodePoint(0x1F44E)} ${obj.reactions.thumbsDown}`;
+                react3.textContent = `${String.fromCodePoint(0x1F497)} ${obj.reactions.heart}`;
+                commentBtn.textContent = String.fromCodePoint(0x1F4AC);
+
                 react1.setAttribute('id', `like:${obj.id}`);
                 react2.setAttribute('id', `dislike:${obj.id}`);
                 react3.setAttribute('id', `heart:${obj.id}`);
                 commentBtn.setAttribute('id', `comment:${obj.id}`);
+                commentBtn.setAttribute('type', 'button');
+                commentBtn.setAttribute('data-bs-toggle', 'collapse');
+                commentBtn.setAttribute('data-bs-target', `#comments${obj.id}`);
 
                 react1.classList.add('like');
                 react2.classList.add('dislike');
@@ -92,6 +100,8 @@ function loadContent(){
                 
                     }
                     fetch(`${apiDomain}posts/reactions/${obj.id}`, options)
+                    .then((response) => response.json())
+                    .then((newObj) => react1.textContent = `${String.fromCodePoint(0x1F44D)} ${newObj.reactions.thumbsUp}`);
                 })
 
                 react2.addEventListener('click', e => {
@@ -102,6 +112,8 @@ function loadContent(){
                         body: JSON.stringify(e)
                     }
                     fetch(`${apiDomain}posts/reactions/${obj.id}`, options)
+                    .then((response) => response.json())
+                    .then((newObj) => react2.textContent = `${String.fromCodePoint(0x1F44E)} ${newObj.reactions.thumbsDown}`);
                 })
 
                 react3.addEventListener('click', e => {
@@ -112,14 +124,55 @@ function loadContent(){
                         body: JSON.stringify(e)
                     }
                     fetch(`${apiDomain}posts/reactions/${obj.id}`, options)
+                    .then((response) => response.json())
+                    .then((newObj) => react3.textContent = `${String.fromCodePoint(0x1F497)} ${newObj.reactions.heart}`);
                 })
+
+                const commentSection = document.createElement('div');
+                commentSection.setAttribute('id', `comments${obj.id}`);
+                commentSection.classList.add('collapse');
+                emojiBar.append(commentSection);
+                const commentSectionText = document.createElement('div');
+                commentSection.append(commentSectionText);
+                for (let j = 0; j < obj.comments.length; j++) {
+                const comment = document.createElement('p');
+                comment.textContent = obj.comments[j];
+                commentSectionText.append(comment);
+                };
+                const commentSectionForm = document.createElement('div');
+                commentSection.append(commentSectionForm);
+                const commentForm = document.createElement('form');
+                commentForm.setAttribute('id', `commentForm${obj.id}`);
+                commentSectionForm.append(commentForm);
+                const commentFormInput = document.createElement('input');
+                commentFormInput.setAttribute('type', 'text');
+                commentFormInput.setAttribute('id', `commentText${obj.id}`);
+                commentFormInput.setAttribute('name', 'commentText');
+                commentFormInput.setAttribute('placeholder', 'Enter comment here!');
+                commentFormInput.setAttribute('maxlength', '240');
+                commentFormInput.setAttribute('required', undefined);
+                const commentFormSubmit = document.createElement('button');
+                commentFormSubmit.setAttribute('type', 'submit');
+                commentFormSubmit.textContent = 'Submit';
+                commentForm.append(commentFormInput);
+                commentForm.append(commentFormSubmit);
+                commentForm.addEventListener("submit", e => {
+                e.preventDefault();
+                const commentText = {comment: e.target.commentText.value};
+                options = {
+                    method: 'PATCH',
+                    headers: {'Content-Type' : 'application/JSON'},
+                    body: JSON.stringify(commentText),
+                }
+                fetch(`${apiDomain}posts/comments/${obj.id}`, options)
+                .then((response) => response.json())
+                const comment = document.createElement('p');
+                comment.textContent = e.target.commentText.value;
+                commentSectionText.append(comment);
+                });
+
             }
-
-
-
                 
-                
-        
             )
         }
         
