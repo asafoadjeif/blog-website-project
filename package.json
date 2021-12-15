@@ -21,13 +21,5 @@
     "cors": "^2.8.5",
     "express": "^4.17.1"
   },
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/asafoadjeif/blog-website-project.git"
-  },
-  "bugs": {
-    "url": "https://github.com/asafoadjeif/blog-website-project/issues"
-  },
-  "homepage": "https://github.com/asafoadjeif/blog-website-project#readme"
+  "description": ""
 }
