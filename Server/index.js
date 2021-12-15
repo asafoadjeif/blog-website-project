@@ -17,11 +17,11 @@ app.get("/giphy/:search", (req, res) => {
         const search = req.params.search;
         if (search.length === 0) {
             throw new Error("No search term")
-        };
+        } else {
         const url = `https://api.giphy.com/v1/gifs/search?&api_key=${process.env.GIPHY_KEY}&q=${search}&limit=10`
         axios.get(url)
         .then(response => res.send(response.data.data))
-        .catch(error => res.send(error.message))
+        .catch(error => res.send(error.message))}
     } catch (error) {
         res.send(error.message)
     };
