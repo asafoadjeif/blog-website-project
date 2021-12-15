@@ -180,11 +180,18 @@ fetch(`${apiDomain}posts`)
             const react2 = document.createElement('button');
             const react3 = document.createElement('button');
             const commentBtn = document.createElement('button');
+            react1.textContent = `${String.fromCodePoint(0x1F44D)} ${obj[i].reactions.thumbsUp}`;
+            react2.textContent = `${String.fromCodePoint(0x1F44E)} ${obj[i].reactions.thumbsDown}`;
+            react3.textContent = `${String.fromCodePoint(0x1F497)} ${obj[i].reactions.heart}`;
+            commentBtn.textContent = String.fromCodePoint(0x1F4AC);
 
-            react1.setAttribute('id', `like:${obj.id}`);
-            react2.setAttribute('id', `dislike:${obj.id}`);
-            react3.setAttribute('id', `heart:${obj.id}`);
-            commentBtn.setAttribute('id', `comment:${obj.id}`);
+            react1.setAttribute('id', `like${obj[i].id}`);
+            react2.setAttribute('id', `dislike${obj[i].id}`);
+            react3.setAttribute('id', `heart${obj[i].id}`);
+            commentBtn.setAttribute('id', `comment${obj[i].id}`);
+            commentBtn.setAttribute('type', 'button');
+            commentBtn.setAttribute('data-bs-toggle', 'collapse');
+            commentBtn.setAttribute('data-bs-target', `#comments${obj[i].id}`);
 
             react1.classList.add('like');
             react2.classList.add('dislike');
@@ -213,6 +220,8 @@ fetch(`${apiDomain}posts`)
               
               }
               fetch(`${apiDomain}posts/reactions/${obj[i].id}`, options)
+              .then((response) => response.json())
+              .then((newObj) => react1.textContent = `${String.fromCodePoint(0x1F44D)} ${newObj.reactions.thumbsUp}`);
             })
 
             react2.addEventListener('click', e => {
@@ -223,6 +232,8 @@ fetch(`${apiDomain}posts`)
                 body: JSON.stringify(e)
               }
               fetch(`${apiDomain}posts/reactions/${obj[i].id}`, options)
+              .then((response) => response.json())
+              .then((newObj) => react2.textContent = `${String.fromCodePoint(0x1F44E)} ${newObj.reactions.thumbsDown}`);
             })
 
             react3.addEventListener('click', e => {
@@ -233,7 +244,20 @@ fetch(`${apiDomain}posts`)
                 body: JSON.stringify(e)
               }
               fetch(`${apiDomain}posts/reactions/${obj[i].id}`, options)
+              .then((response) => response.json())
+              .then((newObj) => react3.textContent = `${String.fromCodePoint(0x1F497)} ${newObj.reactions.heart}`);
             })
+
+            const commentSection = document.createElement('div');
+            commentSection.setAttribute('id', `comments${obj[i].id}`);
+            commentSection.classList.add('collapse');
+            emojiBar.append(commentSection);
+            for (let j = 0; j < obj[i].comments.length; j++) {
+              const comment = document.createElement('p');
+              comment.textContent = obj[i].comments[j];
+              console.log(obj[i].comments[j])
+              commentSection.append(comment);
+            };
 
 
 
