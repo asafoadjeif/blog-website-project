@@ -3,6 +3,7 @@
 const postList = document.getElementById('postList');
 const apiDomain = 'https://fp-snappy.herokuapp.com/';
 const settingsButton = document.getElementById('settingsButton');
+const randomBtn = document.getElementById('random')
 
 postBtn = document.getElementById('postBtn');
 gifBtn = document.getElementById('gifBtn');
@@ -173,12 +174,15 @@ function loadContent(){
                 comment.textContent = e.target.commentText.value;
                 commentSectionText.append(comment);
                 });
-
             }
                 
             )
         }
         
-
+randomBtn.addEventListener('click', (e) => {
+    e.preventDefault;
+    loadContent();
+})
 
 loadContent();
+
