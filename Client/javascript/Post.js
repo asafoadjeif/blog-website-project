@@ -25,6 +25,7 @@ gifBtn.addEventListener('click', (e) => {
     .then((obj) => {
     
       const gifDisplay = document.getElementById("gifResults");
+      gifDisplay.textContent = '';
 
       for (let i = 0; i < obj.length; i++) {
         // Create an image and set its source to the current image
