@@ -1,4 +1,4 @@
-# Snappy
+# ![logo](pfavicon.png)  Snappy  ![logo](pfavicon.png)
 Snappy is a anonymous blogging site where anyone can post 240 character entries with an optional gif as well as reply and react via emojis to existing posts.
 
 ## Installation
