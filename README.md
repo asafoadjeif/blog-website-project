@@ -15,7 +15,9 @@
 ## Bugs
 
 [x] Big gifs are too large for container and overlap other elements.
+
 [x] Gif search doesn't clear old searches.
+
 [x] New posts with no gif show broken image.
 
 
