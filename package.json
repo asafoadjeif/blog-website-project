@@ -4,6 +4,7 @@
   "main": "Server/index.js",
   "scripts": {
     "start": "node Server/index.js",
+    "start-dev": "nodemon Server/index.js",
     "test": "jest --watchAll --verbose --silent",
     "dev": "concurrently \"watchify ./Client/Assets/Javascript//index.js -o bundle.js\" \"python -m http.server\"",
     "coverage": "jest --coverage --silent --watchAll --detectOpenHandles"

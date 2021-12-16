@@ -17,6 +17,7 @@ gifBtn.addEventListener('click', (e) => {
   e.preventDefault(); 
 
   let search = document.getElementById("gifSearch").value;
+  let imgSource = '';
 
   search = search.replace(/\s/g, "+");
 
@@ -124,9 +125,10 @@ fetch(`${apiDomain}posts/`)
             
             
             // create image for card
-            const postImg = document.createElement('img');
-            postImg.src = obj[i].giphyUrl;
-
+            if (obj[i].giphyUrl) {
+              const postImg = document.createElement('img');
+              postImg.src = obj[i].giphyUrl;
+            }
             // create card text, body, footer
             const postBody = document.createElement('div');
             postBody.classList.add('card-body');
