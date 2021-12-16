@@ -3,7 +3,7 @@ const apiDomain = 'https://fp-snappy.herokuapp.com/';
 const gifDisplay = document.getElementById('gifResults');
 postBtn = document.getElementById('postBtn');
 gifBtn = document.getElementById('gifBtn');
-let imgSource;
+let imgSource = '';
 
 //SCRIPT FUNCTIONS TO ALTER WEBPAGE
 
@@ -17,7 +17,6 @@ gifBtn.addEventListener('click', (e) => {
   e.preventDefault(); 
 
   let search = document.getElementById("gifSearch").value;
-  let imgSource = '';
 
   search = search.replace(/\s/g, "+");
 
@@ -26,6 +25,7 @@ gifBtn.addEventListener('click', (e) => {
     .then((obj) => {
     
       const gifDisplay = document.getElementById("gifResults");
+      gifDisplay.textContent = '';
 
       for (let i = 0; i < obj.length; i++) {
         // Create an image and set its source to the current image
@@ -125,8 +125,9 @@ fetch(`${apiDomain}posts/`)
             
             
             // create image for card
+            let postImg = ''
             if (obj[i].giphyUrl) {
-              const postImg = document.createElement('img');
+              postImg = document.createElement('img');
               postImg.src = obj[i].giphyUrl;
             }
             // create card text, body, footer
@@ -137,8 +138,10 @@ fetch(`${apiDomain}posts/`)
             emojiBar.classList.add('card-footer');
 
             postBody.classList.add('text-center');
-
-            postCard.append(postImg);
+            
+            if (obj[i].giphyUrl != 'undefined') {
+              postCard.append(postImg);
+            }
             postCard.append(postBody);
             postCard.append(emojiBar);
             postList.append(postCard);
