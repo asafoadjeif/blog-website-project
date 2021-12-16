@@ -4,6 +4,8 @@ const gifDisplay = document.getElementById('gifResults');
 postBtn = document.getElementById('postBtn');
 gifBtn = document.getElementById('gifBtn');
 let imgSource = '';
+let postImg = '';
+let gif;
 
 //SCRIPT FUNCTIONS TO ALTER WEBPAGE
 
@@ -44,7 +46,7 @@ gifBtn.addEventListener('click', (e) => {
           if (document.getElementById('gifToAdd')) {
             document.getElementById('gifToAdd').remove()
           }
-          const gif = document.createElement("img");
+          gif = document.createElement("img");
           gif.src = imgSource;
           gif.id = "gifToAdd";
 
@@ -53,12 +55,22 @@ gifBtn.addEventListener('click', (e) => {
           document.querySelector("form").append(gif);
         });
         gifDisplay.append(tempImg);
+        
       }
     })
 
 
 })
 
+// ******************************
+// funtion CancelButton removes gif
+// ******************************
+
+function removeGif () {
+  imgSource = '';
+  document.querySelector("form").removeChild(gif);
+
+}
 
 
 
@@ -129,8 +141,8 @@ fetch(`${apiDomain}posts/`)
             // create image for card
 
 
-            let postImg = ''
-            if (obj[i].giphyUrl) {
+
+            if (obj[i].giphyUrl != 'undefined') {
               postImg = document.createElement('img');
               postImg.classList.add('cardImg')
               postImg.src = obj[i].giphyUrl;
