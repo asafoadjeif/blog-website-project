@@ -133,7 +133,7 @@ function removeAllChildNodes() {
     }
 }
 removeAllChildNodes();
-fetch(`${apiDomain}posts`)
+fetch(`${apiDomain}posts/`)
     .then((response) => response.json())
     .then((obj) => {
       const postDisplay = document.getElementById("postList");
@@ -258,7 +258,7 @@ fetch(`${apiDomain}posts`)
             const commentForm = document.createElement('form');
             commentForm.setAttribute('id', `commentForm${obj[i].id}`);
             commentSectionForm.append(commentForm);
-            const commentFormInput = document.createElement('input');
+            const commentFormInput = document.createElement('textarea');
             commentFormInput.setAttribute('type', 'text');
             commentFormInput.setAttribute('id', `commentText${obj[i].id}`);
             commentFormInput.setAttribute('name', 'commentText');

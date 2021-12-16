@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <script src="../JavaScript/Post.js" defer></script>
+    <script src="../JavaScript/RandomPost.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../CSS/Styles.css">
 </head>
@@ -27,41 +27,18 @@
     <div class='container-fluid' style="height: 100%">
         <div class='row p-0'>
             <div class='col-3 bg-dark'>
-                <div class="d-flex flex-column align-items-center sticky-top ">
-                    <a href="index.html">
+                <div class="d-flex flex-column align-items-center sticky-top min-vh-100">
+                    <a href="Index.html">
                         <span> put logo here </span>
                     </a>
                     <ul class="nav nav-pills flex-column" id="siteMenu">
                         <li class="nav-item">
-                            <a class="nav-link align-middle px-0" href=""> <i class="bi bi-house"></i> <span>Home</span>
+                            <a class="nav-link align-middle px-0" href="Index.html"> <i class="bi bi-house"></i> <span>Home</span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class='nav-link align-middle px-0' href="#postMenu" data-bs-toggle='collapse'> <i
-                                    class="bi bi-cloud-arrow-up-fill"></i> <span>Make Post</span> </a>
-                            <ul class="collapse show nav flex-column" id="postMenu" data-bs-parent='siteMenu'>
-                                <!-- Edit this section: Add post submission form -->
-                                <li class="w-100">
-                                    <form action="">
-                                        <textarea name="textBox" id="textBox" class="form-control"></textarea>
 
-
-
-
-                                    </form>
-                                </li> <br>
-                                <div id='preview'> </div>
-                                <li>
-                                    <button data-bs-toggle="offcanvas" data-bs-target="#gifs"> <i
-                                            class="bi bi-images"></i> | Add Gif</button>
-                                    <button id="postBtn"> <i class="bi bi-file-richtext"></i> | Submit Message</button>
-
-                                </li>
-                            </ul>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link align-middle px-0" href=""> <i class="bi bi-gear"></i>
-                                <span>Settings</span> </a>
+                            <button type="button" data-toggle="modal" data-target="#myModal"><i class="bi bi-gear"></i> Settings </button>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link align-middle px-0" href=""> <i class="bi bi-shuffle"></i> <span>Random
@@ -71,17 +48,7 @@
                 </div>
             </div>
             <div class='col-9'>
-                <div class="offcanvas offcanvas-end" id="gifs">
-                    <div class="offcanvas-header">
-                        <input type="text" id="gifSearch" placeholder="search for gifs here"> <button id='gifBtn'
-                            type='button'>Search</button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div id="gifResults"></div> <br>
-                        <button class="btn btn-secondary" type="button">Add Gif</button>
-                        <button class="btn btn-warning" type="button">Cancel</button>
-                    </div>
-                </div>
+
                 <div class="card-columns" id="postList">
 
 
@@ -117,6 +84,26 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+    
+        </div>
+    </div>
 
 
 
