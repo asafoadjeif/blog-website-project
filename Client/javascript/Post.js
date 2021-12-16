@@ -113,10 +113,12 @@ fetch(`${apiDomain}posts/`)
 
       for (let i = obj.length - 1; i > -1; i--) {
 
+            
       
             // create a card to show posts 
             const postCard = document.createElement('div');
             postCard.classList.add('card');
+            postCard.classList.add('w-80');
             
             // newRow.setAttribute('id', i)
             // const newCol1 = document.createElement('div');
@@ -125,6 +127,10 @@ fetch(`${apiDomain}posts/`)
             
             
             // create image for card
+            const postImg = document.createElement('img');
+            postImg.classList.add('cardImg')
+            postImg.src = obj[i].giphyUrl;
+
             let postImg = ''
             if (obj[i].giphyUrl) {
               postImg = document.createElement('img');
@@ -138,13 +144,15 @@ fetch(`${apiDomain}posts/`)
             emojiBar.classList.add('card-footer');
 
             postBody.classList.add('text-center');
+
+            postBody.append(postImg);
             
             if (obj[i].giphyUrl != 'undefined') {
               postCard.append(postImg);
             }
             postCard.append(postBody);
             postCard.append(emojiBar);
-            postList.append(postCard);
+            // postList.append(postCard);
 
             // create buttons and their IDs / classes
             const react1 = document.createElement('button');
@@ -262,6 +270,49 @@ fetch(`${apiDomain}posts/`)
               commentSectionText.append(comment);
             });
 
+          if( (obj.length - i)%2 !=0  ) {
+            console.log('this will be a post on a new row ')
+            let cardRow = document.createElement('div');
+            let cardCol = document.createElement('div');
+            cardRow.append(cardCol);
+            cardRow.setAttribute('id', `row${i}`);
+            cardCol.setAttribute('id', `col${i}`);
+            
+            cardRow.classList.add('row');
+            // cardRow.classList.add('g-5');
+            cardRow.classList.add('postRow');
+            cardCol.classList.add('col-sm');
+            cardCol.classList.add('postCol');
+            cardCol.classList.add('d-flex');
+            cardCol.classList.add('justify-content-center');
+            cardCol.classList.add('align-items-stretch');
+            postList.append(cardRow); 
+            cardCol.append(postCard);
+          }
+          else {console.log('this will be a post on the same row')
+            let cardCol = document.createElement('div');
+            cardCol.setAttribute('id', `col${i}`);
+            cardCol.classList.add('justify-content-center');
+            cardCol.classList.add('col-sm');
+            cardCol.classList.add('postCol');
+            cardCol.classList.add('d-flex');
+            cardCol.classList.add('align-items-stretch');
+            
+            document.querySelector(`#row${i+1}`).append(cardCol);
+            cardCol.append(postCard);
+            }
+
+          // let cardCol = document.createElement('div');
+          // cardCol.classList.add('col');
+          // cardCol.append(postCard);
+          // postList.append(cardCol);
+
+          
+          
+
+
+
+
 
 
             
@@ -269,7 +320,7 @@ fetch(`${apiDomain}posts/`)
       }
         })
       }
-
+    
 
 
 
