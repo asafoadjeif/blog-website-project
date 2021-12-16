@@ -20,6 +20,7 @@ class Post{
 
     static add(post) {
         const newPostId = postsData[postsData.length - 1].id + 1;
+        post.text = post.text.substring(0, 240);
         const newPost = new Post({ id: newPostId, ...post });
         postsData.push(newPost);
         return newPost;
@@ -31,7 +32,7 @@ class Post{
 
     static addComment(id, comment) {
         const post = postsData.filter((post) => post.id === id)[0];
-        post.comments.push(comment);
+        post.comments.push(comment.substring(0, 240));
         postsData[postsData.indexOf(post)] = post;
         return post
     };

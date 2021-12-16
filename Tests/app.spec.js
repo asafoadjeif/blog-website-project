@@ -38,7 +38,7 @@ describe('API server', () => {
             .get('/posts/1')
             .expect(200)
             .expect({'id': 1, 
-                "text": "Hello World!", 
+                "text": "Hello People!", 
                 "giphyUrl": "", 
                 "reactions": {
                     "thumbsUp": 0,
