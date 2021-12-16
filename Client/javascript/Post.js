@@ -125,8 +125,9 @@ fetch(`${apiDomain}posts/`)
             
             
             // create image for card
+            let postImg = ''
             if (obj[i].giphyUrl) {
-              const postImg = document.createElement('img');
+              postImg = document.createElement('img');
               postImg.src = obj[i].giphyUrl;
             }
             // create card text, body, footer
@@ -137,8 +138,10 @@ fetch(`${apiDomain}posts/`)
             emojiBar.classList.add('card-footer');
 
             postBody.classList.add('text-center');
-
-            postCard.append(postImg);
+            
+            if (obj[i].giphyUrl != 'undefined') {
+              postCard.append(postImg);
+            }
             postCard.append(postBody);
             postCard.append(emojiBar);
             postList.append(postCard);
