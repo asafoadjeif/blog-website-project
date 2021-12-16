@@ -1,5 +1,26 @@
 body { min-height: 100vh; }
 
+
+/* set image-size for selected gif */
+
+
+#gifToAdd {
+    width: 100%;
+    height: 100%;
+    max-width: 660px;
+    max-height: 370px;
+}
+
+/* set image-size for search results */
+
+img.gif-img {
+    width: 100%;
+    height: 100%;
+    max-width: 660px;
+    max-height: 370px;
+}
+
+
 .cardImg {
     width: 100%;
     height: 100%;
