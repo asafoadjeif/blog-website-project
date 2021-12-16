@@ -79,6 +79,14 @@ describe('API server', () => {
         expect(updatedStudents.body.length).toBe(previousStudents.body.length - 1);
     })
 
+    //try to delete post that doesn't exist
+    it('responds to delete /posts/:id with status of 204', async() => {
+        await request(api)
+            .delete(`/posts/0`)
+            .expect(404)
+            .expect('Post does not exist.');
+    })
+
     //create new comment
     it('responds to post /comments/:id with status 201', async() => {
         const postObj = await request(api)
@@ -138,4 +146,13 @@ describe('API server', () => {
             .expect(201)
             .expect(postObj.body)
     });
+
+    //null giphy search
+    it('responds to /giphy/" " with no search term', async() => {
+        const search = ''
+        request(api)
+            .get(`/giphy/${search}`)
+            .expect(204)
+            .expect('No search term')
+    })
 });
