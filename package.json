@@ -5,16 +5,17 @@
   "scripts": {
     "start": "node Server/index.js",
     "test": "jest --watchAll --verbose --silent",
-    "dev": "nodemon Server/index.js",
-    "coverage": "jest --coverage --watchAll"
+    "dev": "concurrently \"watchify ./Client/Assets/Javascript//index.js -o bundle.js\" \"python -m http.server\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^6.4.0",
     "jest": "^27.4.4",
     "nodemon": "^2.0.15",
-    "supertest": "^6.1.6"
+    "supertest": "^6.1.6",
+    "watchify": "^4.0.0"
   },
   "dependencies": {
     "axios": "^0.24.0",

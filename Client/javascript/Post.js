@@ -1,7 +1,3 @@
-// const { add } = require("../../../Server/models/post");
-
-// const res = require("express/lib/response");
-
 const postList = document.getElementById('postList');
 const apiDomain = 'https://fp-snappy.herokuapp.com/';
 const gifDisplay = document.getElementById('gifResults');
@@ -66,7 +62,7 @@ gifBtn.addEventListener('click', (e) => {
 
 
 // ******************************
-// function Add Post
+// function Make Post
 // ******************************
 
 postBtn.addEventListener('click', (e) => {
@@ -92,30 +88,6 @@ const options = {
 
       loadContent();
 })
-
-
-
-
-
-
-// *******************************
-// function Add Comments
-// *******************************
-
-
-
-
-
-
-
-
-
-// ******************************
-// function Add Reactions 
-// ******************************
-
-
-
 
 
 
@@ -202,7 +174,7 @@ fetch(`${apiDomain}posts/`)
             emojiBar.append(react3);
             emojiBar.append(commentBtn);
 
-            // add event listener to each button 
+            // add event listener to each button, track amount of responses given
             
 
             react1.addEventListener('click', e => {
