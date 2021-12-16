@@ -1,7 +1,13 @@
-# blog-website-project
+# Snappy
+Snappy is a anonymous blogging site where anyone can post 240 character entries with an optional gif as well as reply and react via emojis to existing posts.
 
-### Installation
+## Installation
 
+### Remote Hosting
+The site is hosted [here](https://fp-snappy.netlify.app) on Netlify
+and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
+
+### Local Hosting
 * Clone or download the repo.
 * Open terminal and navigate to folder.
 * Run `npm init -y` to inialise npm.
