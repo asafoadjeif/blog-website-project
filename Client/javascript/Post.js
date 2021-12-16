@@ -3,7 +3,7 @@ const apiDomain = 'https://fp-snappy.herokuapp.com/';
 const gifDisplay = document.getElementById('gifResults');
 postBtn = document.getElementById('postBtn');
 gifBtn = document.getElementById('gifBtn');
-let imgSource;
+let imgSource = '';
 
 //SCRIPT FUNCTIONS TO ALTER WEBPAGE
 
@@ -17,7 +17,6 @@ gifBtn.addEventListener('click', (e) => {
   e.preventDefault(); 
 
   let search = document.getElementById("gifSearch").value;
-  let imgSource = '';
 
   search = search.replace(/\s/g, "+");
 
