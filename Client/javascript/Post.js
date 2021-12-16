@@ -132,7 +132,8 @@ fetch(`${apiDomain}posts/`)
 
 
             let postImg = ''
-            if (obj[i].giphyUrl) {
+            if (obj[i].giphyUrl.length > 20) {
+              console.log(obj[i].giphyUrl)
               postImg = document.createElement('img');
               postImg.classList.add('cardImg')
               postImg.src = obj[i].giphyUrl;
@@ -148,7 +149,8 @@ fetch(`${apiDomain}posts/`)
 
             postBody.append(postImg);
             
-            if (obj[i].giphyUrl != 'undefined') {
+            if (obj[i].giphyUrl.length > 20) {
+              console.log(obj[i].giphyUrl)
               postCard.append(postImg);
             }
             postCard.append(postBody);
@@ -272,7 +274,7 @@ fetch(`${apiDomain}posts/`)
             });
 
           if( (obj.length - i)%2 !=0  ) {
-            console.log('this will be a post on a new row ')
+            // console.log('this will be a post on a new row ')
             let cardRow = document.createElement('div');
             let cardCol = document.createElement('div');
             cardRow.append(cardCol);
@@ -290,7 +292,8 @@ fetch(`${apiDomain}posts/`)
             postList.append(cardRow); 
             cardCol.append(postCard);
           }
-          else {console.log('this will be a post on the same row')
+          else {
+            // console.log('this will be a post on the same row')
             let cardCol = document.createElement('div');
             cardCol.setAttribute('id', `col${i}`);
             cardCol.classList.add('justify-content-center');
