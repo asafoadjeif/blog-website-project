@@ -127,13 +127,12 @@ fetch(`${apiDomain}posts/`)
             
             
             // create image for card
-            const postImg = document.createElement('img');
-            postImg.classList.add('cardImg')
-            postImg.src = obj[i].giphyUrl;
+
 
             let postImg = ''
             if (obj[i].giphyUrl) {
               postImg = document.createElement('img');
+              postImg.classList.add('cardImg')
               postImg.src = obj[i].giphyUrl;
             }
             // create card text, body, footer
