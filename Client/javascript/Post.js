@@ -70,24 +70,26 @@ postBtn.addEventListener('click', (e) => {
   e.preventDefault();
   let message = document.querySelector("#textBox").value;
     
-data = {
-    text: message,
-    giphyUrl:`${imgSource}`,
-}
+  if (message != '') { 
+  data = {
+      text: message,
+      giphyUrl:`${imgSource}`,
+  }
 
 
-const options = {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      };
+  const options = {
+          method: "POST",
+          headers: {
+          "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
 
-    fetch(`${apiDomain}posts`, options)
-    .then((response) => response.json())
+      fetch(`${apiDomain}posts`, options)
+      .then((response) => response.json())
 
       loadContent();
+    }
 })
 
 
