@@ -9,12 +9,16 @@
     "dev": "concurrently \"watchify ./Client/Assets/Javascript//index.js -o bundle.js\" \"python -m http.server\"",
     "coverage": "jest --coverage --silent --watchAll --detectOpenHandles"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^6.4.0",
-    "jest": "^27.4.4",
+    "jest": "^27.4.5",
+    "jest-fetch-mock": "^3.0.3",
     "nodemon": "^2.0.15",
     "supertest": "^6.1.6",
     "watchify": "^4.0.0"

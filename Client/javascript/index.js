@@ -9,8 +9,8 @@ function settingListeners() {
         dark=mode.switchMode(dark);
     })
 
- 
 }
+
 settingListeners();
 helpers.lightMode();
 
