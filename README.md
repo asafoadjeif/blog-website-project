@@ -18,7 +18,7 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 * Run tests with `npm test` and check coverage with `npm run coverage`.
 
 ## Frontend Languages
-- HTML, CSS, JavaScript
+- HTML, CSS, JavaScript, Bootstrap
   
 ## Backend Packages
 - [NodeJS](https://nodejs.org/en/)
@@ -44,6 +44,12 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 
 [x] Text style in side bar won't change.
 
+## Process
+* Planning: Brainstorm of design in Paint and word document listing all features.
+* Deployed a GitHub repository and used a kanban board to set out tasks to be completed within a certain time frame.
+* Worked on tasks in pairs/threes entailing a front-end team and back-end one. This allowed for a good workflow environment within the team as we were able to tackle down problems faster. 
+* Final testing + debugging + styling.
+
 
 ## Wins & Challenges
 
@@ -63,4 +69,5 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 * Ability to add tags to posts and filter by them.
 * Edit or delete the most recent post you just made.
 * Add text sanitation and filter to restrict what users can post.
+* Authorisation system to prevent unauthorised use (underage pupils)
 
