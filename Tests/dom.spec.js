@@ -1,4 +1,3 @@
-global.fetch = require('jest-fetch-mock');
 
 // const post = require('../Client/javascript/Post');
 const helpers = require('../Client/javascript/helpers');
