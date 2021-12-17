@@ -77,4 +77,5 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 * Add text sanitation and filter to restrict what users can post.
 * Authorisation system to prevent unauthorised use (underage pupils)
 * Clicking on a post opens it up in a new page.
+* Show the number of comments on each post.
 
