@@ -19,6 +19,9 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 
 ## Frontend Languages
 - HTML, CSS, JavaScript, Bootstrap
+
+### Fronted  Frameworks
+- Bootstrap, JQuery
   
 ## Backend Packages
 - [NodeJS](https://nodejs.org/en/)
