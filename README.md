@@ -25,7 +25,10 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 - [Express](https://expressjs.com/)
 - [Cors](https://expressjs.com/en/resources/middleware/cors.html)
 - [Axios](https://www.npmjs.com/package/axios)
+
+### API's
 - [Giphy Api](https://developers.giphy.com/)
+- [TinyMCE](https://www.tiny.cloud/docs/api/)
   
 ### Testing
 - [Jest](https://jestjs.io/)
