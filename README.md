@@ -38,11 +38,11 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 
 ## Bugs
 
-[x] Big gifs are too large for container and overlap other elements.
+[x] Dark mode doesn't persist through page reloads.
 
-[x] Gif search doesn't clear old searches.
+[x] Can keep clicking on the same emoji reaction to increase its number.
 
-[x] New posts with no gif show broken image.
+[x] Text style in side bar won't change.
 
 
 ## Wins & Challenges
@@ -56,7 +56,11 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 ### Challenges
 * Getting user created posts from front-end to be displayed and send to back-end.
 * Adding emoticon selector to create post text area.
+* Getting DOM tests to call and test functions from our JavaScript files.
+* Getting dark mode to work with non-white backgrounds.
 
-### Future Features
-* Ability to add tags to posts and filter by them
+## Future Features
+* Ability to add tags to posts and filter by them.
+* Edit or delete the most recent post you just made.
+* Add text sanitation and filter to restrict what users can post.
 
