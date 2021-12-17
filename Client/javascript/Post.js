@@ -99,6 +99,7 @@ postBtn.addEventListener('click', (e) => {
       .then((response) => response.json())
 
       loadContent();
+      window.location.reload()
     }
 })
 
