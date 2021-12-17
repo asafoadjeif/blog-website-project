@@ -50,8 +50,6 @@ gifBtn.addEventListener('click', (e) => {
           gif.src = imgSource;
           gif.id = "gifToAdd";
 
-  // MAKE WAY TO LIMIT HEIGHT OF PREVIEW IN FUNCTION 
-
           document.querySelector("form").append(gif);
         });
         gifDisplay.append(tempImg);
@@ -75,7 +73,7 @@ function removeGif () {
 
 
 // ******************************
-// function Make Post
+// function to Send Post to Server
 // ******************************
 
 postBtn.addEventListener('click', (e) => {
