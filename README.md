@@ -44,6 +44,8 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 
 [x] Text style in side bar won't change.
 
+[x] Have to refresh page to show new posts.
+
 ## Process
 * Planning: Brainstorm of design in Paint and word document listing all features.
 * Deployed a GitHub repository and used a kanban board to set out tasks to be completed within a certain time frame.
@@ -70,4 +72,5 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 * Edit or delete the most recent post you just made.
 * Add text sanitation and filter to restrict what users can post.
 * Authorisation system to prevent unauthorised use (underage pupils)
+* Clicking on a post opens it up in a new page.
 
