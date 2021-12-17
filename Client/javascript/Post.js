@@ -80,7 +80,7 @@ postBtn.addEventListener('click', (e) => {
   e.preventDefault();
   let message = document.querySelector("#textBox").value;
     
-  if (message != '') { 
+  if (message != '' || imgSource != '') { 
   data = {
       text: message,
       giphyUrl:`${imgSource}`,
