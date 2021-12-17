@@ -45,7 +45,7 @@ img.gif-img {
     padding: 10px;
 }
 
-.reactBtn {
+/* .reactBtn {
     border-radius: 5px;
     padding: 3px;
 }
@@ -53,7 +53,7 @@ img.gif-img {
     background-color: rgb(7, 0, 34);
     transform: scale(1.25) perspective(1px);
     color: bisque;
-}
+} */
 
 /* Header page contents */
 .header {
@@ -145,3 +145,31 @@ img.gif-img {
       transform: translateY(0);
     }
   }
+
+  .reactBtn {
+    border-radius: 5px;
+    padding: 5px;
+    height: 60px;
+    width: 75px;
+    background-color: darkkhaki;
+}
+.reactBtn:hover {
+    background-color: rgb(7, 0, 34);
+    transform: scale(1.25) perspective(1px);
+    color: bisque;
+}
+
+.card {
+    border: rgb(177, 80, 0);
+    border-style: solid;
+    width: 25rem;
+    height: 30rem;
+    border-radius: 3px;
+}
+.card:hover {
+    transform: scale(1.05) perspective(1px);
+}
+
+.card-footer {
+    background-color: rgb(245, 240, 195);
+}
