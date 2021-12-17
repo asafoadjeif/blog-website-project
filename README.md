@@ -25,7 +25,6 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 - [Express](https://expressjs.com/)
 - [Cors](https://expressjs.com/en/resources/middleware/cors.html)
 - [Axios](https://www.npmjs.com/package/axios)
-- [Giphy Api](https://developers.giphy.com/)
   
 ### Testing
 - [Jest](https://jestjs.io/)
@@ -35,6 +34,11 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [Watchify](https://www.npmjs.com/package/watchify)
 - [Concurrently](https://www.npmjs.com/package/concurrently)
+
+### API's
+- [Giphy](https://developers.giphy.com/)
+- [TinyMCE](https://www.tiny.cloud/docs/api/)
+
 
 ## Bugs
 
