@@ -5,6 +5,7 @@ let cards;
 let cardBody;
 let cardText;
 
+// Functions to change background color
 
 function darkMode() {
     display=document.querySelector('div.col-9');

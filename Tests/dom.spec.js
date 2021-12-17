@@ -21,6 +21,9 @@ describe('Head Testing', () => {
 
 })
 
+// *************************
+// Testing fetch commands (not complete, returns null at addEventListener: Post.js  line 18)
+// *************************
 
 // describe('Fetch Testing', () => {
 //     let gifBtn, postBtn, postList
@@ -31,9 +34,9 @@ describe('Head Testing', () => {
 //     gifBtn = document.getElementById('gifBtn');
 //     })
 
-//     test('it makes a fetch call to the given giphy api url', async () => {
-//     await post.loadContent();
-//     expect(fetch).toHaveBeenCalled()
+//     test('it makes a fetch call to the given giphy api url', () => { 
+//         post.loadContent();
+//         expect(fetch).toHaveBeenCalled()
 // })
 // })
 
