@@ -18,7 +18,7 @@ and our API is hosted [here](https://fp-snappy.herokuapp.com/posts) on Heroku.
 * Run tests with `npm test` and check coverage with `npm run coverage`.
 
 ## Frontend Languages
-- HTML, CSS, JavaScript, Bootstrap
+- HTML, CSS, JavaScript
 
 ### Fronted  Frameworks
 - Bootstrap, JQuery
